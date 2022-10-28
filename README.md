@@ -2,7 +2,7 @@
 
 Reto Sophos
 
-Documentation on: base_url/swagger
+Documentation on: https://localhost:{port}/swagger/
 
 Using PostgreSql
 
