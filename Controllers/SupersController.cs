@@ -14,12 +14,38 @@ public class SupersController: ControllerBase {
         dbcontext = db;
     }
 
-    [HttpGet(Name = "GetHero")]
+    [HttpGet(Name = "GetSuper")]
     //[Route("1")]
     //[Route("2")]
     //[Route("[action]")]
     public IActionResult Get() {
         return Ok(supersService.Get());
+    }
+
+    [HttpGet("heroe/{id}")]
+    public IActionResult GetHeroe(Guid id) {
+        //Console.WriteLine(id);
+        return Ok(supersService.GetHeroe(id));
+    }
+
+    [HttpGet("heroeByNombre/{name}")]
+    public IActionResult GetHeroeByNombre(string nombre) {
+        return Ok(supersService.GetHeroeByNombre(nombre));
+    }
+
+    [HttpGet("villano/{id}")]
+    public IActionResult GetVillano(Guid id) {
+        return Ok(supersService.GetVillano(id));
+    }
+
+    [HttpGet("villanoByNombre/{name}")]
+    public IActionResult GetVillanoByNombre(string nombre) {
+        return Ok(supersService.GetVillanoByNombre(nombre));
+    }
+
+    [HttpGet("heroeByHabilidades/{habilidades}")]
+    public IActionResult GetHeroeByHabilidades(string habilidades) {
+        return Ok(supersService.GetHeroeByHabilidades(habilidades));
     }
 
 

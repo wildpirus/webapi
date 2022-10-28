@@ -6,7 +6,7 @@ public class Super {
     public Guid super_id {get; set;}
     public string nombre {get;set;}
     public int edad {get;set;}
-    public Rol rol_super {get;set;}
+    public string rol_super {get;set;}
     public string relaciones {get;set;}
     public string origen {get;set;}
 
@@ -20,7 +20,7 @@ public class Super {
     public virtual ICollection<Pelea> Peleas {get; set;}
 }
 
-public enum Rol {
+/*public enum Rol {
     Heroe,
     Villano
-}
+}*/

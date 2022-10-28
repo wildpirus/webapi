@@ -138,3 +138,6 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.patrocinador
     OWNER to postgres;
+
+
+insert into super values ('fe2de405-c38e-4c90-ac52-da0540dfb4ef','Gamora',22,'Heroe','Hijos de thanos','Titán');

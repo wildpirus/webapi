@@ -12,7 +12,9 @@ public class SupersContext: DbContext{
     public DbSet<Patrocinador> Patrocinadores {get; set;}
     public DbSet<Evento> Eventos {get; set;}
 
-    public SupersContext(DbContextOptions<SupersContext> options) :base(options) { }
+    public SupersContext(DbContextOptions<SupersContext> options) :base(options) { 
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder){
         
@@ -21,15 +23,15 @@ public class SupersContext: DbContext{
             super_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0540dfb4ef"),
             nombre = "Gamora",
             edad = 22,
-            rol_super = Rol.Heroe,
+            rol_super = "Heroe",
             relaciones = "Hijo de thanos",
             origen = "Titán"
         });
         supersInit.Add(new Super() {
-            super_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0540dfb4eg"),
+            super_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0549dfb4ef"),
             nombre = "Thanos",
             edad = 40,
-            rol_super = Rol.Villano,
+            rol_super = "Villano",
             relaciones = "Hijo de eternos",
             origen = "Titán"
         });
@@ -47,9 +49,19 @@ public class SupersContext: DbContext{
 
         List<Rasgo> rasgosInit = new List<Rasgo>();
         rasgosInit.Add(new Rasgo() {
-            rasgo_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0540dfb402"),
+            rasgo_id = Guid.Parse("d4687a08-ba31-48b3-91ea-af2f56e80daf"),
             titulo = "Superfuerza",
-            tipo_rasgo = TipoRasgo.Habilidad
+            tipo_rasgo = "Habilidad"
+        });
+        rasgosInit.Add(new Rasgo() {
+            rasgo_id = Guid.Parse("60cb6ca1-ee8e-4d32-abbb-80c031424743"),
+            titulo = "Velocidad",
+            tipo_rasgo = "Habilidad"
+        });
+        rasgosInit.Add(new Rasgo() {
+            rasgo_id = Guid.Parse("99b18b03-4452-42e7-93b5-4afb733d4865"),
+            titulo = "Tiempo",
+            tipo_rasgo = "Habilidad"
         });
         modelBuilder.Entity<Rasgo>(rasgo => {
             rasgo.ToTable("rasgo");
@@ -63,13 +75,23 @@ public class SupersContext: DbContext{
         List<RasgoSuper> rasgosSupersInit = new List<RasgoSuper>();
         rasgosSupersInit.Add(new RasgoSuper() {
             rasgo_super_id = Guid.NewGuid(),
-            rasgo_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0540dfb402"),
+            rasgo_id = Guid.Parse("d4687a08-ba31-48b3-91ea-af2f56e80daf"),
+            super_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0540dfb4ef") 
+        });
+        rasgosSupersInit.Add(new RasgoSuper() {
+            rasgo_super_id = Guid.NewGuid(),
+            rasgo_id = Guid.Parse("60cb6ca1-ee8e-4d32-abbb-80c031424743"),
+            super_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0540dfb4ef") 
+        });
+        rasgosSupersInit.Add(new RasgoSuper() {
+            rasgo_super_id = Guid.NewGuid(),
+            rasgo_id = Guid.Parse("99b18b03-4452-42e7-93b5-4afb733d4865"),
             super_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0540dfb4ef") 
         });
         modelBuilder.Entity<RasgoSuper>(rasgosSuper => {
             rasgosSuper.ToTable("rasgo_super");
             rasgosSuper.HasKey(p=>p.rasgo_super_id);
-            rasgosSuper.HasOne(p=>p.Rasgo).WithMany(p=>p.RasgosSuper).HasForeignKey(p=>p.super_id);
+            rasgosSuper.HasOne(p=>p.Rasgo).WithMany(p=>p.RasgosSuper).HasForeignKey(p=>p.rasgo_id);
             rasgosSuper.HasOne(p=>p.Super).WithMany(p=>p.RasgosSuper).HasForeignKey(p=>p.super_id);
 
             rasgosSuper.HasData(rasgosSupersInit);
@@ -77,7 +99,7 @@ public class SupersContext: DbContext{
 
         List<Enfrentamiento> enfrentamientoInit = new List<Enfrentamiento>();
         enfrentamientoInit.Add(new Enfrentamiento() {
-            enfrentamiento_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0540dfb4eh"),
+            enfrentamiento_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0940dfb4ef"),
             titulo = "Pelea de Wakanda",
             fecha = DateTime.Now
         });
@@ -94,13 +116,13 @@ public class SupersContext: DbContext{
         peleaInit.Add(new Pelea() {
             pelea_id = Guid.NewGuid(),
             super_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0540dfb4ef"),
-            enfrentamiento_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0540dfb4eh"),
+            enfrentamiento_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0940dfb4ef"),
             gana = true
         });
         peleaInit.Add(new Pelea() {
             pelea_id = Guid.NewGuid(),
-            super_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0540dfb4eg"),
-            enfrentamiento_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0540dfb4eh"),
+            super_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0549dfb4ef"),
+            enfrentamiento_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0940dfb4ef"),
             gana = false
         });
         modelBuilder.Entity<Pelea>(pelea => {
@@ -110,7 +132,7 @@ public class SupersContext: DbContext{
             pelea.HasOne(p=>p.Enfrentamiento).WithMany(p=>p.Peleas).HasForeignKey(p=>p.enfrentamiento_id);
             pelea.Property(p=> p.gana).IsRequired();
 
-            pelea.HasData(rasgosInit);
+            pelea.HasData(peleaInit);
         });
 
         List<Patrocinador> patrocinadorInit = new List<Patrocinador>();
@@ -123,7 +145,7 @@ public class SupersContext: DbContext{
             patrocinador.Property(p=> p.monto).IsRequired();
             patrocinador.Property(p=> p.origen_monto).IsRequired();
 
-            patrocinador.HasData(patrocinadorInit);
+            //patrocinador.HasData(patrocinadorInit);
         });
 
         List<Evento> eventoInit = new List<Evento>();
@@ -138,7 +160,7 @@ public class SupersContext: DbContext{
             evento.Property(p=> p.descripcion);
             evento.Property(p=> p.lugar);
 
-            evento.HasData(eventoInit);
+            //evento.HasData(eventoInit);
         });
     }
 
