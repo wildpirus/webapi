@@ -14,12 +14,18 @@ public class SupersController: ControllerBase {
         dbcontext = db;
     }
 
-    [HttpGet(Name = "GetSuper")]
+    //[HttpGet(Name = "GetSuper")]
     //[Route("1")]
     //[Route("2")]
     //[Route("[action]")]
-    public IActionResult Get() {
-        return Ok(supersService.Get());
+    [HttpGet("Heroes")]
+    public IActionResult GetHeroes() {
+        return Ok(supersService.GetHeroes());
+    }
+
+    [HttpGet("Villanos")]
+    public IActionResult GetVillanos() {
+        return Ok(supersService.GetVillanos());
     }
 
     [HttpGet("heroe/{id}")]
@@ -45,9 +51,24 @@ public class SupersController: ControllerBase {
 
     [HttpGet("heroeByHabilidades/{habilidades}")]
     public IActionResult GetHeroeByHabilidades(string habilidades) {
-        return Ok(supersService.GetHeroeByHabilidades(habilidades));
+        return Ok(supersService.GetHeroeByHabilidades(habilidades));//GetHeroeByHabilidades
     }
 
+    [HttpGet("WorstVillainAgainstTeen")]
+    public IActionResult GetWorstVillainAgainstTeen() {
+        return Ok(supersService.GetWorstVillainAgainstTeen());
+    }
+    
+    [HttpGet("GetTeenHeroes")]
+    public IActionResult GetTeenHeroes() {
+        return Ok(supersService.GetTeenHeroes());
+    }
+
+    [HttpGet("WorstVillainAgainstTeenHero/{id}")]
+    public IActionResult GetWorstVillainAgainstTeenHero(Guid id) {
+        return Ok(supersService.GetWorstVillainAgainstTeenHero(id));
+    }
+    
 
     [HttpPost]
     public IActionResult Post([FromBody] Super super) {
