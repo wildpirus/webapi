@@ -12,7 +12,7 @@ public class EnfrentamientosController: ControllerBase {
         enfrentamientosService = service;
     }
 
-    [HttpGet]
+    [HttpGet("luchas")]
     public IActionResult Get() {
         return Ok(enfrentamientosService.Get());
     }
@@ -21,20 +21,24 @@ public class EnfrentamientosController: ControllerBase {
     [HttpPost]
     public IActionResult Post([FromBody] Enfrentamiento enfrentamiento) {
         enfrentamientosService.Save(enfrentamiento);
-        return Ok();
+        if (enfrentamiento.enfrentamiento_id == Guid.Empty){
+            return Conflict();
+        }else {
+            return Created(new Uri("https://www.google.com/"),enfrentamiento);
+        }
     }
 
 
     [HttpPut("{id}")]
     public IActionResult Put(Guid id, [FromBody] Enfrentamiento enfrentamiento) {
         enfrentamientosService.Update(id, enfrentamiento);
-        return Ok();
+        return Accepted();
     }
 
     [HttpDelete("{id}")]
     public IActionResult Delete(Guid id) {
         enfrentamientosService.Delete(id);
-        return Ok();
+        return NoContent();
     }    
 
 }

@@ -21,20 +21,24 @@ public class PatrocinadoresController: ControllerBase {
     [HttpPost]
     public IActionResult Post([FromBody] Patrocinador patrocinador) {
         patrocinadoresService.Save(patrocinador);
-        return Ok();
+        if (patrocinador.patrocinador_id == Guid.Empty){
+            return Conflict();
+        }else {
+            return Created(new Uri("https://www.google.com/"),patrocinador);
+        }
     }
 
 
     [HttpPut("{id}")]
     public IActionResult Put(Guid id, [FromBody] Patrocinador patrocinador) {
         patrocinadoresService.Update(id, patrocinador);
-        return Ok();
+        return Accepted();
     }
 
     [HttpDelete("{id}")]
     public IActionResult Delete(Guid id) {
         patrocinadoresService.Delete(id);
-        return Ok();
+        return NoContent();
     }    
 
 }

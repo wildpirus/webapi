@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace webapi.Models;
 
 public class Patrocinador {
@@ -6,5 +8,6 @@ public class Patrocinador {
     public string nombre {get; set;}
     public float monto {get; set;}
     public string origen_monto {get; set;}
+    [JsonIgnore]
     public virtual Super Super {get; set;}
 }

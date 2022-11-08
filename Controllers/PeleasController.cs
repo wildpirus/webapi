@@ -21,20 +21,24 @@ public class PeleasController: ControllerBase {
     [HttpPost]
     public IActionResult Post([FromBody] Pelea pelea) {
         peleasService.Save(pelea);
-        return Ok();
+        if (pelea.pelea_id == Guid.Empty){
+            return Conflict();
+        }else {
+            return Created(new Uri("https://www.google.com/"),pelea);
+        }
     }
 
 
     [HttpPut("{id}")]
     public IActionResult Put(Guid id, [FromBody] Pelea pelea) {
         peleasService.Update(id, pelea);
-        return Ok();
+        return Accepted();
     }
 
     [HttpDelete("{id}")]
     public IActionResult Delete(Guid id) {
         peleasService.Delete(id);
-        return Ok();
+        return NoContent();
     }    
 
 }

@@ -1,5 +1,6 @@
 using webapi.Models;
 namespace webapi.Services;
+using Microsoft.EntityFrameworkCore;
 
 public class PeleasService : IPeleasService {
     
@@ -14,8 +15,12 @@ public class PeleasService : IPeleasService {
     }
 
     public async Task Save(Pelea pelea) {
-        context.Add(pelea);
-        await context.SaveChangesAsync();
+        int exist = context.Peleas.Where(p => p.enfrentamiento_id == pelea.enfrentamiento_id && p.super_id == pelea.super_id).Count();
+        if (exist == 0){
+            pelea.pelea_id = Guid.NewGuid();
+            await context.AddAsync(pelea);
+            await context.SaveChangesAsync();
+        }
     }
 
     public async Task Update(Guid id, Pelea pelea) {

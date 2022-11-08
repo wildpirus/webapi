@@ -7,7 +7,8 @@ public class Pelea {
     public Guid super_id {get;set;}
     public Guid enfrentamiento_id {get; set;}
     public bool gana {get; set;}
-    [JsonIgnore]
+    //[JsonIgnore]
     public virtual Super Super {get; set;}
+    [JsonIgnore]
     public virtual Enfrentamiento Enfrentamiento {get; set;}
 }

@@ -12,29 +12,38 @@ public class EventosController: ControllerBase {
         eventosService = service;
     }
 
-    [HttpGet]
-    public IActionResult Get() {
-        return Ok(eventosService.Get());
+    [HttpGet("agenda/{super_id}")]
+    public IActionResult Get(Guid super_id, [FromQuery] string inicio,  [FromQuery] string fin) {
+        return Ok(eventosService.GetByUser(super_id,inicio,fin));
+    }
+
+    [HttpGet("{id}")]
+    public IActionResult GetEvento(Guid id) {
+        return Ok(eventosService.Get(id));
     }
 
 
     [HttpPost]
     public IActionResult Post([FromBody] Evento evento) {
         eventosService.Save(evento);
-        return Ok();
+        if (evento.evento_id == Guid.Empty) {
+            return Conflict();
+        } else {
+            return Created(new Uri("https://www.google.com/"),evento);
+        }
     }
 
 
     [HttpPut("{id}")]
     public IActionResult Put(Guid id, [FromBody] Evento evento) {
         eventosService.Update(id, evento);
-        return Ok();
+        return Accepted();
     }
 
     [HttpDelete("{id}")]
     public IActionResult Delete(Guid id) {
         eventosService.Delete(id);
-        return Ok();
+        return NoContent();
     }    
 
 }

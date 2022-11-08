@@ -1,5 +1,6 @@
 using webapi.Models;
 namespace webapi.Services;
+using Microsoft.EntityFrameworkCore;
 
 public class RasgosSupersService : IRasgosSupersService {
     SupersContext context;
@@ -13,9 +14,12 @@ public class RasgosSupersService : IRasgosSupersService {
     }
 
     public async Task Save(RasgoSuper rasgoSuper) {
-        
-        context.Add(rasgoSuper);
-        await context.SaveChangesAsync();
+        int exist = context.RasgosSupers.Where(r => r.rasgo_id == rasgoSuper.rasgo_id && r.super_id == rasgoSuper.super_id).Count();
+        if (exist == 0){
+            rasgoSuper.rasgo_super_id = Guid.NewGuid();
+            await context.AddAsync(rasgoSuper);
+            await context.SaveChangesAsync();
+        }
     }
 
     public async Task Update(Guid id, RasgoSuper rasgoSuper) {

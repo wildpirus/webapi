@@ -17,24 +17,27 @@ public class RasgosSupersController: ControllerBase {
         return Ok(rasgosSupersService.Get());
     }
 
-
     [HttpPost]
     public IActionResult Post([FromBody] RasgoSuper rasgoSuper) {
         rasgosSupersService.Save(rasgoSuper);
-        return Ok();
+        if (rasgoSuper.rasgo_super_id == Guid.Empty){
+            return Conflict();
+        }else {
+            return Created(new Uri("https://www.google.com/"),rasgoSuper);
+        }
     }
 
 
     [HttpPut("{id}")]
     public IActionResult Put(Guid id, [FromBody] RasgoSuper rasgoSuper) {
         rasgosSupersService.Update(id, rasgoSuper);
-        return Ok();
+        return Accepted();
     }
 
     [HttpDelete("{id}")]
     public IActionResult Delete(Guid id) {
         rasgosSupersService.Delete(id);
-        return Ok();
+        return NoContent();
     }    
 
 }

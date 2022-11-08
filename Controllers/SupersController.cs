@@ -34,7 +34,7 @@ public class SupersController: ControllerBase {
         return Ok(supersService.GetHeroe(id));
     }
 
-    [HttpGet("heroeByNombre/{name}")]
+    [HttpGet("heroeByNombre/{nombre}")]
     public IActionResult GetHeroeByNombre(string nombre) {
         return Ok(supersService.GetHeroeByNombre(nombre));
     }
@@ -44,7 +44,7 @@ public class SupersController: ControllerBase {
         return Ok(supersService.GetVillano(id));
     }
 
-    [HttpGet("villanoByNombre/{name}")]
+    [HttpGet("villanoByNombre/{nombre}")]
     public IActionResult GetVillanoByNombre(string nombre) {
         return Ok(supersService.GetVillanoByNombre(nombre));
     }
@@ -54,39 +54,82 @@ public class SupersController: ControllerBase {
         return Ok(supersService.GetHeroeByHabilidades(habilidades));//GetHeroeByHabilidades
     }
 
-    [HttpGet("WorstVillainAgainstTeen")]
+    [HttpGet("worstVillainAgainstTeen")]
     public IActionResult GetWorstVillainAgainstTeen() {
         return Ok(supersService.GetWorstVillainAgainstTeen());
     }
     
-    [HttpGet("GetTeenHeroes")]
+    [HttpGet("teenHeroes")]
     public IActionResult GetTeenHeroes() {
         return Ok(supersService.GetTeenHeroes());
     }
 
-    [HttpGet("WorstVillainAgainstTeenHero/{id}")]
+    [HttpGet("adultHeroes")]
+    public IActionResult GetAdultHeroes() {
+        return Ok(supersService.GetAdultHeroes());
+    }
+
+    [HttpGet("worstVillainAgainstTeenHero/{id}")]
     public IActionResult GetWorstVillainAgainstTeenHero(Guid id) {
         return Ok(supersService.GetWorstVillainAgainstTeenHero(id));
     }
+
+    [HttpGet("heroeByRelacionesPersonales/{relaciones}")]
+    public IActionResult GetHeroeByRelacionesPersonales(string relaciones) {
+        return Ok(supersService.GetHeroeByRelacionesPersonales(relaciones));
+    }
+
     
+    [HttpGet("villanoByOrigen/{origen}")]
+    public IActionResult GetVillanoByOrigen(string origen) {
+        return Ok(supersService.GetVillanoByOrigen(origen));
+    }
+
+    [HttpGet("villanoByDebilidades/{debilidades}")]
+    public IActionResult GetVillanoByDebilidades(string debilidades) {
+        return Ok(supersService.GetVillanoByDebilidades(debilidades));//GetHeroeByHabilidades
+    }
+
+    [HttpGet("heroeBestSponsor/{id}")]
+    public IActionResult GetHeroeBestSponsor(Guid id) {
+        return Ok(supersService.GetHeroeBestSponsor(id));
+    }
+
+    [HttpGet("top3Heroes")]
+    public IActionResult Top3Heroes() {
+        return Ok(supersService.Top3Heroes());
+    }
+
+    [HttpGet("mostFoughtVillanoByHeroe/{id}")]
+    public IActionResult mostFoughtVillanoByHeroe(Guid id) {
+        return Ok(supersService.mostFoughtVillanoByHeroe(id));
+    }
+    
+    [HttpGet("patrocinadoresByHeroe")]
+    public IActionResult getPatrocinadoresByHeroe() {
+        return Ok(supersService.getPatrocinadoresByHeroe());
+    }
 
     [HttpPost]
     public IActionResult Post([FromBody] Super super) {
         supersService.Save(super);
-        return Ok();
+        if (super.super_id == Guid.Empty){
+            return Conflict();
+        }else {
+            return Created(new Uri("https://www.google.com/"),super);
+        }
     }
-
 
     [HttpPut("{id}")]
     public IActionResult Put(Guid id, [FromBody] Super super) {
         supersService.Update(id, super);
-        return Ok();
+        return Accepted();
     }
 
     [HttpDelete("{id}")]
     public IActionResult Delete(Guid id) {
         supersService.Delete(id);
-        return Ok();
+        return NoContent();
     }   
 
     [HttpGet]
@@ -95,7 +138,7 @@ public class SupersController: ControllerBase {
     {
         dbcontext.Database.EnsureCreated();
 
-        return Ok();
+        return NoContent();
     }
 
 }

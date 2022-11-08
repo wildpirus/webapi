@@ -12,29 +12,42 @@ public class RasgosController: ControllerBase {
         rasgosService = service;
     }
 
-    [HttpGet]
-    public IActionResult Get() {
-        return Ok(rasgosService.Get());
+    [HttpGet("Habilidades")]
+    public IActionResult GetHabilidades() {
+        return Ok(rasgosService.GetHabilidades());
     }
 
+    [HttpGet("Debilidades")]
+    public IActionResult GetDebilidades() {
+        return Ok(rasgosService.GetDebilidades());
+    }
+
+    [HttpGet("{id}")]
+    public IActionResult GetRasgo(Guid id) {
+        return Ok(rasgosService.GetRasgo(id));
+    }
 
     [HttpPost]
     public IActionResult Post([FromBody] Rasgo rasgo) {
         rasgosService.Save(rasgo);
-        return Ok();
+        if (rasgo.rasgo_id == Guid.Empty) {
+            return Conflict();
+        } else {
+            return Created(new Uri("https://www.google.com/"),rasgo);
+        }
     }
 
 
     [HttpPut("{id}")]
     public IActionResult Put(Guid id, [FromBody] Rasgo rasgo) {
         rasgosService.Update(id, rasgo);
-        return Ok();
+        return Accepted();
     }
 
     [HttpDelete("{id}")]
     public IActionResult Delete(Guid id) {
         rasgosService.Delete(id);
-        return Ok();
+        return NoContent();
     }    
 
 }

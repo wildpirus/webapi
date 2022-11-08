@@ -16,6 +16,6 @@ public class Super {
     public virtual ICollection<Evento> Eventos {get; set;}
     //[JsonIgnore]
     public virtual ICollection<Patrocinador> Patrocinadores {get; set;}
-    //[JsonIgnore]
+    [JsonIgnore]
     public virtual ICollection<Pelea> Peleas {get; set;}
 }

@@ -1,5 +1,6 @@
 using webapi.Models;
 namespace webapi.Services;
+using Microsoft.EntityFrameworkCore;
 
 public class PatrocinadoresService : IPatrocinadoresService {
     
@@ -14,8 +15,12 @@ public class PatrocinadoresService : IPatrocinadoresService {
     }
 
     public async Task Save(Patrocinador patrocinador) {
-        context.Add(patrocinador);
-        await context.SaveChangesAsync();
+        int exist = context.Patrocinadores.Where(p => p.nombre == patrocinador.nombre && p.super_id == patrocinador.super_id).Count();
+        if (exist == 0) {
+            patrocinador.patrocinador_id = Guid.NewGuid();
+            await context.AddAsync(patrocinador);
+            await context.SaveChangesAsync();
+        }
     }
 
     public async Task Update(Guid id, Patrocinador patrocinador) {

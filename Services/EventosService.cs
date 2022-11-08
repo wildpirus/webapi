@@ -1,5 +1,6 @@
 using webapi.Models;
 namespace webapi.Services;
+using Microsoft.EntityFrameworkCore;
 
 public class EventosService : IEventosService {
     
@@ -9,13 +10,34 @@ public class EventosService : IEventosService {
         context = dbcontext;
     }
 
-    public IEnumerable<Evento> Get() {
-        return context.Eventos;
+    public IEnumerable<Evento> GetByUser(Guid id, string inicio, string fin) {
+        IEnumerable<Evento> eventos = context.Eventos.Where(p => p.super_id == id);
+        if (inicio != null){
+            DateTime start;
+            DateTime.TryParse(inicio, out start);
+            eventos = eventos.Where(e => e.inicio >= start);
+        }if (fin != null){
+            DateTime finish;
+            DateTime.TryParse(fin, out finish);
+            eventos = eventos.Where(e => e.fin <= finish);
+        }
+        return eventos;
+    }
+
+    public Evento Get(Guid id) {
+        return context.Eventos.Where(p => p.evento_id == id).First();
     }
 
     public async Task Save(Evento evento) {
-        context.Add(evento);
-        await context.SaveChangesAsync();
+        int exist = context.Eventos.Where(e => e.super_id == evento.super_id && 
+            (evento.inicio >= e.inicio && evento.inicio <= e.fin) &&  
+            (evento.fin >= e.inicio && evento.fin <= e.fin)
+        ).Count();
+        if (exist == 0) {
+            evento.evento_id = Guid.NewGuid(); 
+            await context.AddAsync(evento);
+            await context.SaveChangesAsync();
+        }
     }
 
     public async Task Update(Guid id, Evento evento) {
@@ -44,7 +66,8 @@ public class EventosService : IEventosService {
 }
 
 public interface IEventosService {
-    IEnumerable<Evento> Get();
+    IEnumerable<Evento> GetByUser(Guid id, string from, string to);
+    Evento Get(Guid id);
     Task Save(Evento evento);
 
     Task Update(Guid id, Evento evento);

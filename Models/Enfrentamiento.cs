@@ -7,6 +7,6 @@ public class Enfrentamiento {
     public string titulo {get;set;}
     public DateTime fecha {get; set;}
     
-    [JsonIgnore]
+    //[JsonIgnore]
     public virtual ICollection<Pelea> Peleas {get; set;}
 }
