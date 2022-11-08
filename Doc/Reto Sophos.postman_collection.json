@@ -1,0 +1,717 @@
+{
+	"info": {
+		"_postman_id": "5a6e0698-6577-46bb-a838-b3d3ebd294e7",
+		"name": "Reto Sophos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22370977"
+	},
+	"item": [
+		{
+			"name": "Rasgos",
+			"item": [
+				{
+					"name": "Habilidades",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}{{PORT}}/api/v1/rasgos/Habilidades",
+							"host": [
+								"{{URL}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"rasgos",
+								"Habilidades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Debilidades",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}{{PORT}}/api/v1/rasgos/Debilidades",
+							"host": [
+								"{{URL}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"rasgos",
+								"Debilidades"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rasgo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}{{PORT}}/api/v1/rasgos/60cb6ca1-ee8e-4d32-abbb-80c031424743",
+							"host": [
+								"{{URL}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"rasgos",
+								"60cb6ca1-ee8e-4d32-abbb-80c031424743"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Rasgo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"ojos claros\",\r\n    \"tipo_rasgo\": \"Debilidad\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}{{PORT}}/api/v1/rasgos",
+							"host": [
+								"{{URL}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"rasgos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Supers",
+			"item": [
+				{
+					"name": "Heroes",
+					"item": [
+						{
+							"name": "Heroes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/heroes",
+									"host": [
+										"{{URL}}{{PORT}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"supers",
+										"heroes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Heroe",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/heroe/fe2de405-c38e-4c90-ac52-da0540dfb4ef",
+									"host": [
+										"{{URL}}{{PORT}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"supers",
+										"heroe",
+										"fe2de405-c38e-4c90-ac52-da0540dfb4ef"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Heroe by name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/heroeByNombre/Gamora",
+									"host": [
+										"{{URL}}{{PORT}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"supers",
+										"heroeByNombre",
+										"Gamora"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Heroes por Habilidades",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/heroeByHabilidades/Superfuerza,Tiempo",
+									"host": [
+										"{{URL}}{{PORT}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"supers",
+										"heroeByHabilidades",
+										"Superfuerza,Tiempo"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Heroes Adolescentes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/teenHeroes",
+									"host": [
+										"{{URL}}{{PORT}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"supers",
+										"teenHeroes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Heroes Adultos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/adultHeroes",
+									"host": [
+										"{{URL}}{{PORT}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"supers",
+										"adultHeroes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Heroes by Relaciones personales",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/heroeByRelacionesPersonales/soltero",
+									"host": [
+										"{{URL}}{{PORT}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"supers",
+										"heroeByRelacionesPersonales",
+										"soltero"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Mejor patrocinador de Heroe",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/heroeBestSponsor/9aaf6bba-7ade-48ef-9208-a5c7ec05d425",
+									"host": [
+										"{{URL}}{{PORT}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"supers",
+										"heroeBestSponsor",
+										"9aaf6bba-7ade-48ef-9208-a5c7ec05d425"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Top 3 Heroes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/top3Heroes",
+									"host": [
+										"{{URL}}{{PORT}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"supers",
+										"top3Heroes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "mostFoughtVillanoByHeroe",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/mostFoughtVillanoByHeroe/9aaf6bba-7ade-48ef-9208-a5c7ec05d425",
+									"host": [
+										"{{URL}}{{PORT}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"supers",
+										"mostFoughtVillanoByHeroe",
+										"9aaf6bba-7ade-48ef-9208-a5c7ec05d425"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "patrocinadores By Heroe",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/patrocinadoresByHeroe",
+									"host": [
+										"{{URL}}{{PORT}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"supers",
+										"patrocinadoresByHeroe"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Villanos",
+					"item": [
+						{
+							"name": "Villanos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/villanos",
+									"host": [
+										"{{URL}}{{PORT}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"supers",
+										"villanos"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Villano",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/villano/fe2de405-c38e-4c90-ac52-da0549dfb4ef",
+									"host": [
+										"{{URL}}{{PORT}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"supers",
+										"villano",
+										"fe2de405-c38e-4c90-ac52-da0549dfb4ef"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Villano by name",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/villanoByNombre/Than",
+									"host": [
+										"{{URL}}{{PORT}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"supers",
+										"villanoByNombre",
+										"Than"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Villano by Origen",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/villanoByOrigen/titán",
+									"host": [
+										"{{URL}}{{PORT}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"supers",
+										"villanoByOrigen",
+										"titán"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Villano por Debilidades",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/villanoByDebilidades/Balas de plata,Machete",
+									"host": [
+										"{{URL}}{{PORT}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"supers",
+										"villanoByDebilidades",
+										"Balas de plata,Machete"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Peor Villano con Joven",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}{{PORT}}/api/v1/supers/worstVillainAgainstTeen",
+							"host": [
+								"{{URL}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"supers",
+								"worstVillainAgainstTeen"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Peor Villano con Heroe Joven",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}{{PORT}}/api/v1/supers/WorstVillainAgainstTeenHero/9aaf6bba-7ade-48ef-9208-a5c7ec05d425",
+							"host": [
+								"{{URL}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"supers",
+								"WorstVillainAgainstTeenHero",
+								"9aaf6bba-7ade-48ef-9208-a5c7ec05d425"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Agenda",
+			"item": [
+				{
+					"name": "Agenda",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}{{PORT}}/api/v1/eventos/agenda/9aaf6bba-7ade-48ef-9208-a5c7ec05d425",
+							"host": [
+								"{{URL}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"eventos",
+								"agenda",
+								"9aaf6bba-7ade-48ef-9208-a5c7ec05d425"
+							],
+							"query": [
+								{
+									"key": "inicio",
+									"value": "01/03/2001",
+									"disabled": true
+								},
+								{
+									"key": "fin",
+									"value": "07/03/2001",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Evento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}{{PORT}}/api/v1/eventos/0721752c-1f98-485b-bfdf-eb5d29f1eb2a",
+							"host": [
+								"{{URL}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"eventos",
+								"0721752c-1f98-485b-bfdf-eb5d29f1eb2a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Evento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"super_id\": \"9aaf6bba-7ade-48ef-9208-a5c7ec05d425\",\r\n    \"titulo\": \"Universidad\",\r\n    \"inicio\": \"2020-03-01T00:00:00\",\r\n    \"fin\": \"2020-03-01T00:00:00\",\r\n    \"descripción\": \"Ingles\",\r\n    \"lugar\": \"Uninorte\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}{{PORT}}/api/v1/eventos/",
+							"host": [
+								"{{URL}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"eventos",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ragos de Super",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rasgo_id\": \"f4cfdaeb-e20e-40e1-b758-73f8cf6303b3\",\r\n    \"super_id\": \"fe2de405-c38e-4c90-ac52-da0549dfb4ef\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}{{PORT}}/api/v1/rasgossupers",
+					"host": [
+						"{{URL}}{{PORT}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"rasgossupers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Init DB",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}{{PORT}}/api/v1/supers/createdb",
+					"host": [
+						"{{URL}}{{PORT}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"supers",
+						"createdb"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Luchas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}{{PORT}}/api/v1/enfrentamientos/luchas",
+					"host": [
+						"{{URL}}{{PORT}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"enfrentamientos",
+						"luchas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patrocinador",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"super_id\": \"9aaf6bba-7ade-48ef-9208-a5c7ec05d425\",\r\n    \"nombre\": \"Gobierno\",\r\n    \"monto\": 9999.56,\r\n    \"origen_monto\": \"Impuestos\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}{{PORT}}/api/v1/patrocinadores",
+					"host": [
+						"{{URL}}{{PORT}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"patrocinadores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Enfrentamiento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Mampujan\",\r\n    \"fecha\": \"2022-10-29T04:37:13.798\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}{{PORT}}/api/v1/enfrentamientos",
+					"host": [
+						"{{URL}}{{PORT}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"enfrentamientos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pelea",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"super_id\": \"fe2de405-c38e-4c90-ac52-da0549dfb4ef\",\r\n    \"enfrentamiento_id\": \"9f64a15e-656a-4a4c-b856-318c92dc273b\",\r\n    \"gana\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				}
+			},
+			"response": []
+		}
+	]
+}
