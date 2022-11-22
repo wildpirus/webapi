@@ -19,7 +19,7 @@ public class SupersService : ISupersService {
     }
 
     public Super GetHeroe(Guid id) {
-        return context.Supers.Include(x => x.RasgosSuper).ThenInclude(r => r.Rasgo)
+        return context.Supers.Include(p => p.Patrocinadores).Include(x => x.RasgosSuper).ThenInclude(r => r.Rasgo)
         .Where(p => p.rol_super == "Heroe")
         .Where(p => p.super_id == id).First();
     }
