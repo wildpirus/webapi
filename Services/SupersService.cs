@@ -11,11 +11,11 @@ public class SupersService : ISupersService {
     }
 
     public IEnumerable<Super> GetHeroes() {
-        return context.Supers.Include(x => x.RasgosSuper).ThenInclude(r => r.Rasgo).Where(x => x.rol_super == "Heroe");
+        return context.Supers.Include(x => x.RasgosSuper).ThenInclude(r => r.Rasgo).Where(x => x.rol_super == "Heroe").ToList();
     }
 
     public IEnumerable<Super> GetVillanos() {
-        return context.Supers.Include(x => x.RasgosSuper).ThenInclude(r => r.Rasgo).Where(x => x.rol_super == "Villano");
+        return context.Supers.Include(x => x.RasgosSuper).ThenInclude(r => r.Rasgo).Where(x => x.rol_super == "Villano").ToList();
     }
 
     public Super GetHeroe(Guid id) {
@@ -33,19 +33,19 @@ public class SupersService : ISupersService {
     public IEnumerable<Super> GetHeroeByNombre(string nombre) {
         return context.Supers.Include(x => x.RasgosSuper).ThenInclude(r => r.Rasgo)
         .Where(p => p.rol_super == "Heroe")
-        .Where(p => p.nombre.Contains(nombre));
+        .Where(p => p.nombre.Contains(nombre)).ToList();
     }
 
     public IEnumerable<Super> GetVillanoByNombre(string nombre) {
         return context.Supers.Include(x => x.RasgosSuper).ThenInclude(r => r.Rasgo)
         .Where(p => p.rol_super == "Villano")
-        .Where(p => p.nombre.Contains(nombre));
+        .Where(p => p.nombre.Contains(nombre)).ToList();
     }
 
     public IEnumerable<Super>  GetHeroeByHabilidades(string habilidades) {
         string[] hab = habilidades.Split(",");
         List<Super> matchHeroes = new List<Super>();
-        foreach (Super super in context.Supers.Include(x => x.RasgosSuper).ThenInclude(r => r.Rasgo).Where(x => x.rol_super == "Heroe")) {
+        foreach (Super super in context.Supers.Include(x => x.RasgosSuper).ThenInclude(r => r.Rasgo).Where(x => x.rol_super == "Heroe").ToList()) {
             ICollection<Rasgo> rasgosSuper = super.RasgosSuper.Select(x => x.Rasgo).ToList();
             HashSet<string> s = new HashSet<string>();
             foreach (Rasgo rasgo in rasgosSuper) {
@@ -98,11 +98,11 @@ public class SupersService : ISupersService {
     }
 
     public IEnumerable<Super> GetTeenHeroes () {
-        return context.Supers.Include(x => x.RasgosSuper).ThenInclude(r => r.Rasgo).Where(x => x.rol_super == "Heroe" && x.edad > 9 && x.edad < 20);
+        return context.Supers.Include(x => x.RasgosSuper).ThenInclude(r => r.Rasgo).Where(x => x.rol_super == "Heroe" && x.edad > 9 && x.edad < 20).ToList();
     }
 
     public IEnumerable<Super> GetAdultHeroes () {
-        return context.Supers.Include(x => x.RasgosSuper).ThenInclude(r => r.Rasgo).Where(x => x.rol_super == "Heroe" && x.edad > 19);
+        return context.Supers.Include(x => x.RasgosSuper).ThenInclude(r => r.Rasgo).Where(x => x.rol_super == "Heroe" && x.edad > 19).ToList();
     }
 
     public Object GetWorstVillainAgainstTeenHero(Guid id) {
@@ -140,19 +140,19 @@ public class SupersService : ISupersService {
     public IEnumerable<Super> GetHeroeByRelacionesPersonales(string relaciones){
         return context.Supers.Include(x => x.RasgosSuper).ThenInclude(r => r.Rasgo)
             .Where(x => x.rol_super == "Heroe")
-            .Where(x => x.relaciones.Contains(relaciones));
+            .Where(x => x.relaciones.Contains(relaciones)).ToList();
     }
 
     public IEnumerable<Super> GetVillanoByOrigen(string origen){
         return context.Supers.Include(x => x.RasgosSuper).ThenInclude(r => r.Rasgo)
             .Where(x => x.rol_super == "Villano")
-            .Where(x => x.origen.ToLower().Contains(origen.ToLowerInvariant()));
+            .Where(x => x.origen.ToLower().Contains(origen.ToLowerInvariant())).ToList();
     }
 
     public IEnumerable<Super> GetVillanoByDebilidades(string debilidades) {
         string[] deb = debilidades.Split(",");
         List<Super> matchVillanos = new List<Super>();
-        foreach (Super super in context.Supers.Include(x => x.RasgosSuper).ThenInclude(r => r.Rasgo).Where(x => x.rol_super == "Villano")) {
+        foreach (Super super in context.Supers.Include(x => x.RasgosSuper).ThenInclude(r => r.Rasgo).Where(x => x.rol_super == "Villano").ToList()) {
             ICollection<Rasgo> rasgosSuper = super.RasgosSuper.Select(x => x.Rasgo).ToList();
             HashSet<string> s = new HashSet<string>();
             foreach (Rasgo rasgo in rasgosSuper) {
@@ -241,7 +241,7 @@ public class SupersService : ISupersService {
     }
 
     public IEnumerable<Super> getPatrocinadoresByHeroe() {
-        return context.Supers.Include(p => p.Patrocinadores).Where(h => h.rol_super == "Heroe");
+        return context.Supers.Include(p => p.Patrocinadores).Where(h => h.rol_super == "Heroe").ToList();
     }           
 
     public async Task Save(Super super) {
