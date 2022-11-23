@@ -248,6 +248,9 @@ public class SupersService : ISupersService {
         int exist = context.Supers.Where(s => s.nombre == super.nombre).Count();
         if (exist == 0) {
             super.super_id = Guid.NewGuid();
+            super.nombre = super.nombre.ToLowerInvariant();
+            super.relaciones = super.relaciones.ToLowerInvariant();
+            super.origen = super.origen.ToLowerInvariant();
             await context.AddAsync(super);
             await context.SaveChangesAsync();
         }
@@ -257,10 +260,11 @@ public class SupersService : ISupersService {
         var superActual = context.Supers.Find(id);
 
         if(superActual != null) {
-            superActual.nombre = super.nombre;
+            superActual.nombre = super.nombre.ToLowerInvariant();
             superActual.rol_super = super.rol_super;
-            superActual.relaciones = super.relaciones;
-            superActual.origen = super.origen;
+            superActual.image_link = super.image_link;
+            superActual.relaciones = super.relaciones.ToLowerInvariant();
+            superActual.origen = super.origen.ToLowerInvariant();
 
             await context.SaveChangesAsync();
         }

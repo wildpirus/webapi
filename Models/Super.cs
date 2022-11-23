@@ -6,6 +6,7 @@ public class Super {
     public Guid super_id {get; set;}
     public string nombre {get;set;}
     public int edad {get;set;}
+    public string image_link {get;set;}
     public string rol_super {get;set;}
     public string relaciones {get;set;}
     public string origen {get;set;}

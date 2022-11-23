@@ -23,6 +23,7 @@ public class SupersContext: DbContext{
             super_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0540dfb4ef"),
             nombre = "Gamora",
             edad = 22,
+            image_link = "https://static.wikia.nocookie.net/marveldatabase/images/4/43/Gamora_%28Earth-199999%29_from_Guardians_of_the_Galaxy_%28film%29_poster_002.jpg/revision/latest?cb=20140720030528",
             rol_super = "Heroe",
             relaciones = "Hijo de thanos",
             origen = "Titán"
@@ -31,6 +32,7 @@ public class SupersContext: DbContext{
             super_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0549dfb4ef"),
             nombre = "Thanos",
             edad = 40,
+            image_link = "https://static.wikia.nocookie.net/marveldatabase/images/b/bc/Thanos_%28Earth-199999%29_from_Avengers_Infinity_War_-_The_Official_Movie_Special_001.jpg/revision/latest?cb=20180501065444",
             rol_super = "Villano",
             relaciones = "Hijo de eternos",
             origen = "Titán"
@@ -41,6 +43,7 @@ public class SupersContext: DbContext{
             super.Property(p=> p.nombre).IsRequired();
             super.Property(p=> p.edad).IsRequired();
             super.Property(p=> p.rol_super).IsRequired();
+            super.Property(p=> p.image_link).IsRequired();
             super.Property(p=> p.relaciones);
             super.Property(p=> p.origen);
 
