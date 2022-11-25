@@ -2,7 +2,7 @@
 
 Reto Sophos
 
-Details of configuration:
+## Details of configuration:
 
 * LENGUAGE_BACKEND: C#
 * FRAMEWORK_BACKEND: EntityFramework 6.0.10
@@ -27,10 +27,10 @@ dotnet run
 ```
 
 
-Don´t forget to setup the appsetting.json file
+### Don´t forget to setup the appsetting.json file
 
-if you're gonna use PostgreSql set your variables in the appsetting.json file as "dbEngine" : "PostgreSQL" and set your supersPGSQL variable and if you're gonna use SQL Server set "dbEngine" : "SQLServer" and set your supersSQLSR variable.
+### if you're gonna use PostgreSql set your variables in the appsetting.json file as "dbEngine" : "PostgreSQL" and set your supersPGSQL variable and if you're gonna use SQL Server set "dbEngine" : "SQLServer" and set your supersSQLSR variable.
 
 
-UML class diagram
+## UML class diagram
 ![image](https://user-images.githubusercontent.com/51038943/203902788-ca36fda3-8dcd-414a-b899-62eec2614d72.png)
