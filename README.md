@@ -31,4 +31,6 @@ Don´t forget to setup the appsetting.json file
 
 if you're gonna use PostgreSql set your variables in the appsetting.json file as "dbEngine" : "PostgreSQL" and set your supersPGSQL variable and if you're gonna use SQL Server set "dbEngine" : "SQLServer" and set your supersSQLSR variable.
 
-LENGUAGE_BACKEND mínimo versión X
+
+UML class diagram
+![image](https://user-images.githubusercontent.com/51038943/203902788-ca36fda3-8dcd-414a-b899-62eec2614d72.png)
