@@ -55,7 +55,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}{{PORT}}/api/v1/rasgos/60cb6ca1-ee8e-4d32-abbb-80c031424743",
+							"raw": "{{URL}}{{PORT}}/api/v1/rasgos/45607d43-0d3d-4637-897d-8782e712df97",
 							"host": [
 								"{{URL}}{{PORT}}"
 							],
@@ -63,7 +63,7 @@
 								"api",
 								"v1",
 								"rasgos",
-								"60cb6ca1-ee8e-4d32-abbb-80c031424743"
+								"45607d43-0d3d-4637-897d-8782e712df97"
 							]
 						}
 					},
@@ -131,7 +131,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{URL}}{{PORT}}/api/v1/supers/heroe/fe2de405-c38e-4c90-ac52-da0540dfb4ef",
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/heroe/c20555e5-6fe7-40a4-9642-8f83c9e5a554",
 									"host": [
 										"{{URL}}{{PORT}}"
 									],
@@ -140,7 +140,7 @@
 										"v1",
 										"supers",
 										"heroe",
-										"fe2de405-c38e-4c90-ac52-da0540dfb4ef"
+										"c20555e5-6fe7-40a4-9642-8f83c9e5a554"
 									]
 								}
 							},
@@ -234,7 +234,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{URL}}{{PORT}}/api/v1/supers/heroeByRelacionesPersonales/soltero",
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/heroeByRelacionesPersonales/Odin",
 									"host": [
 										"{{URL}}{{PORT}}"
 									],
@@ -243,7 +243,7 @@
 										"v1",
 										"supers",
 										"heroeByRelacionesPersonales",
-										"soltero"
+										"Odin"
 									]
 								}
 							},
@@ -255,7 +255,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{URL}}{{PORT}}/api/v1/supers/heroeBestSponsor/9aaf6bba-7ade-48ef-9208-a5c7ec05d425",
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/heroeBestSponsor/c20555e5-6fe7-40a4-9642-8f83c9e5a554",
 									"host": [
 										"{{URL}}{{PORT}}"
 									],
@@ -264,7 +264,7 @@
 										"v1",
 										"supers",
 										"heroeBestSponsor",
-										"9aaf6bba-7ade-48ef-9208-a5c7ec05d425"
+										"c20555e5-6fe7-40a4-9642-8f83c9e5a554"
 									]
 								}
 							},
@@ -296,7 +296,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{URL}}{{PORT}}/api/v1/supers/mostFoughtVillanoByHeroe/9aaf6bba-7ade-48ef-9208-a5c7ec05d425",
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/mostFoughtVillanoByHeroe/c20555e5-6fe7-40a4-9642-8f83c9e5a554",
 									"host": [
 										"{{URL}}{{PORT}}"
 									],
@@ -305,7 +305,7 @@
 										"v1",
 										"supers",
 										"mostFoughtVillanoByHeroe",
-										"9aaf6bba-7ade-48ef-9208-a5c7ec05d425"
+										"c20555e5-6fe7-40a4-9642-8f83c9e5a554"
 									]
 								}
 							},
@@ -362,7 +362,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{URL}}{{PORT}}/api/v1/supers/villano/fe2de405-c38e-4c90-ac52-da0549dfb4ef",
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/villano/a522fa66-5552-4896-ad88-5f2557b3a6cc",
 									"host": [
 										"{{URL}}{{PORT}}"
 									],
@@ -371,7 +371,7 @@
 										"v1",
 										"supers",
 										"villano",
-										"fe2de405-c38e-4c90-ac52-da0549dfb4ef"
+										"a522fa66-5552-4896-ad88-5f2557b3a6cc"
 									]
 								}
 							},
@@ -425,7 +425,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{URL}}{{PORT}}/api/v1/supers/villanoByDebilidades/Balas de plata,Machete",
+									"raw": "{{URL}}{{PORT}}/api/v1/supers/villanoByDebilidades/Sylvie",
 									"host": [
 										"{{URL}}{{PORT}}"
 									],
@@ -434,7 +434,7 @@
 										"v1",
 										"supers",
 										"villanoByDebilidades",
-										"Balas de plata,Machete"
+										"Sylvie"
 									]
 								}
 							},
@@ -468,7 +468,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}{{PORT}}/api/v1/supers/WorstVillainAgainstTeenHero/9aaf6bba-7ade-48ef-9208-a5c7ec05d425",
+							"raw": "{{URL}}{{PORT}}/api/v1/supers/WorstVillainAgainstTeenHero/c20555e5-6fe7-40a4-9642-8f83c9e5a554",
 							"host": [
 								"{{URL}}{{PORT}}"
 							],
@@ -477,7 +477,35 @@
 								"v1",
 								"supers",
 								"WorstVillainAgainstTeenHero",
-								"9aaf6bba-7ade-48ef-9208-a5c7ec05d425"
+								"c20555e5-6fe7-40a4-9642-8f83c9e5a554"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Super",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Black Phanter\",\r\n    \"edad\": 18,\r\n    \"image_link\": \"https://i.blogs.es/30cb7a/blackpanther5/840_560.jpg\",\r\n    \"rol_super\": \"Heroe\",\r\n    \"relaciones\": \"Hijo de T'chaka\",\r\n    \"origen\": \"Wakanda\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}{{PORT}}/api/v1/supers",
+							"host": [
+								"{{URL}}{{PORT}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"supers"
 							]
 						}
 					},
@@ -494,7 +522,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}{{PORT}}/api/v1/eventos/agenda/9aaf6bba-7ade-48ef-9208-a5c7ec05d425",
+							"raw": "{{URL}}{{PORT}}/api/v1/eventos/agenda/c20555e5-6fe7-40a4-9642-8f83c9e5a554",
 							"host": [
 								"{{URL}}{{PORT}}"
 							],
@@ -503,7 +531,7 @@
 								"v1",
 								"eventos",
 								"agenda",
-								"9aaf6bba-7ade-48ef-9208-a5c7ec05d425"
+								"c20555e5-6fe7-40a4-9642-8f83c9e5a554"
 							],
 							"query": [
 								{
@@ -527,7 +555,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}{{PORT}}/api/v1/eventos/0721752c-1f98-485b-bfdf-eb5d29f1eb2a",
+							"raw": "{{URL}}{{PORT}}/api/v1/eventos/1ebb1dd0-923b-4310-bb11-65de5eb1daf9",
 							"host": [
 								"{{URL}}{{PORT}}"
 							],
@@ -535,7 +563,7 @@
 								"api",
 								"v1",
 								"eventos",
-								"0721752c-1f98-485b-bfdf-eb5d29f1eb2a"
+								"1ebb1dd0-923b-4310-bb11-65de5eb1daf9"
 							]
 						}
 					},
@@ -548,7 +576,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"super_id\": \"9aaf6bba-7ade-48ef-9208-a5c7ec05d425\",\r\n    \"titulo\": \"Universidad\",\r\n    \"inicio\": \"2020-03-01T00:00:00\",\r\n    \"fin\": \"2020-03-01T00:00:00\",\r\n    \"descripción\": \"Ingles\",\r\n    \"lugar\": \"Uninorte\"\r\n}",
+							"raw": "{\r\n    \"super_id\": \"C20555E5-6FE7-40A4-9642-8F83C9E5A554\",\r\n    \"titulo\": \"Universidad\",\r\n    \"inicio\": \"2022-03-07T00:00:00\",\r\n    \"fin\": \"2022-03-07T00:00:00\",\r\n    \"descripcion\": \"Materiales\",\r\n    \"lugar\": \"Uninorte\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

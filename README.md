@@ -10,7 +10,7 @@ Reto Sophos
 * BASE_DE_DATOS: PostgreSql or SQL Server 2019
 * GIT: git version 2.37.1.windows.1 (Used version)
 
-Documentation on: endpoint `/swagger/` or `https://www.getpostman.com/collections/347517c2bc726ac861f6`
+Documentation on: endpoint `/swagger/` or postman collection in the projects folder `/Doc`
 
 Using ORM, Entity Framework, so theres no need to do a sql script to create the database; using PostgreSql or SQL Server
 
@@ -26,11 +26,10 @@ dotnet run
   
 ```
 
-
 ### Don´t forget to setup the appsetting.json file
 
 ### if you're gonna use PostgreSql set your variables in the appsetting.json file as "dbEngine" : "PostgreSQL" and set your supersPGSQL variable and if you're gonna use SQL Server set "dbEngine" : "SQLServer" and set your supersSQLSR variable.
 
-
 ## UML class diagram
+
 ![image](https://user-images.githubusercontent.com/51038943/203902788-ca36fda3-8dcd-414a-b899-62eec2614d72.png)
