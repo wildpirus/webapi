@@ -33,8 +33,8 @@ public class EnfrentamientosService : IEnfrentamientosService {
         int exist = context.Enfrentamientos.Where(e => e.titulo == enfrentamiento.titulo).Count();
         if (exist == 0) {
             enfrentamiento.enfrentamiento_id = Guid.NewGuid();
-            await context.AddAsync(enfrentamiento);
-            await context.SaveChangesAsync();
+            context.Add(enfrentamiento);
+            context.SaveChanges();
         }
     }
 
@@ -45,7 +45,7 @@ public class EnfrentamientosService : IEnfrentamientosService {
             enfrentamientoActual.titulo = enfrentamiento.titulo;
             enfrentamientoActual.fecha = enfrentamiento.fecha;
 
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
     }
 
@@ -54,7 +54,7 @@ public class EnfrentamientosService : IEnfrentamientosService {
 
         if(enfrentamientoActual != null) {
             context.Remove(enfrentamientoActual);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
     }
 }

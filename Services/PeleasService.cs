@@ -18,8 +18,8 @@ public class PeleasService : IPeleasService {
         int exist = context.Peleas.Where(p => p.enfrentamiento_id == pelea.enfrentamiento_id && p.super_id == pelea.super_id).Count();
         if (exist == 0){
             pelea.pelea_id = Guid.NewGuid();
-            await context.AddAsync(pelea);
-            await context.SaveChangesAsync();
+            context.Add(pelea);
+            context.SaveChanges();
         }
     }
 
@@ -31,7 +31,7 @@ public class PeleasService : IPeleasService {
             peleaActual.enfrentamiento_id = pelea.enfrentamiento_id;
             peleaActual.gana = pelea.gana;
 
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
     }
 
@@ -40,7 +40,7 @@ public class PeleasService : IPeleasService {
 
         if(peleaActual != null) {
             context.Remove(peleaActual);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
     }
 }

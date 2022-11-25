@@ -251,8 +251,8 @@ public class SupersService : ISupersService {
             super.nombre = super.nombre.ToLowerInvariant();
             super.relaciones = super.relaciones.ToLowerInvariant();
             super.origen = super.origen.ToLowerInvariant();
-            await context.AddAsync(super);
-            await context.SaveChangesAsync();
+            context.Add(super);
+            context.SaveChanges();
         }
     }
 
@@ -266,7 +266,7 @@ public class SupersService : ISupersService {
             superActual.relaciones = super.relaciones.ToLowerInvariant();
             superActual.origen = super.origen.ToLowerInvariant();
 
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
     }
 
@@ -275,7 +275,7 @@ public class SupersService : ISupersService {
 
         if(superActual != null) {
             context.Remove(superActual);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
     }
 }

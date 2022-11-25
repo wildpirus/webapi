@@ -32,11 +32,18 @@ public class EventosService : IEventosService {
         int exist = context.Eventos.Where(e => e.super_id == evento.super_id && 
             (evento.inicio >= e.inicio && evento.inicio <= e.fin) &&  
             (evento.fin >= e.inicio && evento.fin <= e.fin)
-        ).Count();
+        ).ToList().Count();
         if (exist == 0) {
             evento.evento_id = Guid.NewGuid(); 
-            await context.AddAsync(evento);
-            await context.SaveChangesAsync();
+            Console.WriteLine(evento.evento_id.ToString());
+            Console.WriteLine(evento.super_id.ToString());
+            Console.WriteLine(evento.titulo);
+            Console.WriteLine(evento.inicio);
+            Console.WriteLine(evento.fin);
+            Console.WriteLine(evento.descripcion);
+            Console.WriteLine(evento.lugar);
+            context.Add(evento);
+            context.SaveChanges();
         }
     }
 
@@ -51,7 +58,7 @@ public class EventosService : IEventosService {
             eventoActual.descripcion = evento.descripcion;
             eventoActual.lugar = evento.lugar;
 
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
     }
 
@@ -60,7 +67,7 @@ public class EventosService : IEventosService {
 
         if(eventoActual != null) {
             context.Remove(eventoActual);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
     }
 }

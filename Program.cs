@@ -10,9 +10,16 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddNpgsql<SupersContext>(builder.Configuration.GetConnectionString("supers"));
+
+if (builder.Configuration.GetConnectionString("dbEngine") == "SQLServer"){
+    builder.Services.AddSqlServer<SupersContext>(builder.Configuration.GetConnectionString("supersSQLSR"));
+}else if (builder.Configuration.GetConnectionString("dbEngine") == "PostgreSQL"){
+    builder.Services.AddNpgsql<SupersContext>(builder.Configuration.GetConnectionString("supersPGSQL"));
+}
+
 //builder.Services.AddScoped<IHelloWorldService, HelloWorldService>();
 //builder.Services.AddScoped<IHelloWorldService>(p=> new HelloWorldService());
+
 builder.Services.AddScoped<ISupersService, SupersService>();
 builder.Services.AddScoped<IRasgosSupersService, RasgosSupersService>();
 builder.Services.AddScoped<IRasgosService, RasgosService>();

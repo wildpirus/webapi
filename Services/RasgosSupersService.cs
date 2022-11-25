@@ -17,8 +17,8 @@ public class RasgosSupersService : IRasgosSupersService {
         int exist = context.RasgosSupers.Where(r => r.rasgo_id == rasgoSuper.rasgo_id && r.super_id == rasgoSuper.super_id).Count();
         if (exist == 0){
             rasgoSuper.rasgo_super_id = Guid.NewGuid();
-            await context.AddAsync(rasgoSuper);
-            await context.SaveChangesAsync();
+            context.Add(rasgoSuper);
+            context.SaveChanges();
         }
     }
 
@@ -29,7 +29,7 @@ public class RasgosSupersService : IRasgosSupersService {
             rasgoSuperActual.super_id = rasgoSuper.super_id;
             rasgoSuper.rasgo_id = rasgoSuper.rasgo_id;
             
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
     }
 
@@ -38,7 +38,7 @@ public class RasgosSupersService : IRasgosSupersService {
 
         if(rasgoSuperActual != null) {
             context.Remove(rasgoSuperActual);
-            await context.SaveChangesAsync();
+            context.SaveChanges();
         }
     }
 
