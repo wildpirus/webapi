@@ -7,7 +7,7 @@
   },
   "AllowedHosts": "*",
   "ConnectionStrings": {
-    "supers" : "User ID={DbUserId};Password={password};Host={host};Port={port};Database=supers;"
+    "supersPGSQL" : "User ID={DbUserId};Password={password};Host={host};Port={port};Database=supers;"
     "supersSQLSR" : "Data Source={host};Initial Catalog=supers;user id={DbUserId};password={password}",
     "dbEngine" : "{Engine}" 
   }
