@@ -32,7 +32,7 @@ public class SupersContext: DbContext{
             super_id = Guid.Parse("37c2b061-9924-4595-8deb-f1c7f02c9bca"),
             nombre = "Thanos",
             edad = 40,
-            image_link = "https://static.wikia.nocookie.net/marveldatabase/images/b/bc/Thanos_%28Earth-199999%29_from_Avengers_Infinity_War_-_The_Official_Movie_Special_001.jpg/revision/latest?cb=20180501065444",
+            image_link = "https://www.fayerwayer.com/resizer/PDiogAqypMSaBDGuzqzDvCYNtuU=/800x0/filters:format(jpg):quality(70)/cloudfront-us-east-1.images.arcpublishing.com/metroworldnews/TNECR6DTXNBIPO3QTW4EEANDEE.jpg",
             rol_super = "Villano",
             relaciones = "Hijo de eternos",
             origen = "Titán"

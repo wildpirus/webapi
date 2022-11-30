@@ -112,6 +112,7 @@ public class SupersController: ControllerBase {
 
     [HttpPost]
     public IActionResult Post([FromBody] Super super) {
+        Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(super));
         supersService.Save(super);
         if (super.super_id == Guid.Empty){
             return Conflict();
