@@ -23,7 +23,7 @@ public class SupersContext: DbContext{
             super_id = Guid.Parse("fe2de405-c38e-4c90-ac52-da0540dfb4ef"),
             nombre = "Gamora",
             edad = 22,
-            image_link = "https://static.wikia.nocookie.net/marveldatabase/images/4/43/Gamora_%28Earth-199999%29_from_Guardians_of_the_Galaxy_%28film%29_poster_002.jpg/revision/latest?cb=20140720030528",
+            image_link = "https://www.pngplay.com/wp-content/uploads/12/Gamora-Transparent-PNG.png",
             rol_super = "Heroe",
             relaciones = "Hijo de thanos",
             origen = "Titán"

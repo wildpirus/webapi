@@ -4,6 +4,8 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+string _MyCors = "MyCors";
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -52,6 +54,13 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
+builder.Services.AddCors(options => {
+    options.AddPolicy(name: _MyCors, builder => {
+        builder.SetIsOriginAllowed(origin => origin == "http://127.0.0.1:5173")
+        .AllowAnyHeader().AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -67,7 +76,7 @@ if (app.Environment.IsDevelopment()) {
 
 app.UseStaticFiles();
 app.UseRouting();
-
+app.UseCors(_MyCors);
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
